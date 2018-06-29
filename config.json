@@ -1,0 +1,4 @@
+{
+    "pgDumpFilename": "postgredump.txt",
+    "secretHash": "some-hash-you-define; make sure you put it somewhere safe"
+}

@@ -1,0 +1,28 @@
+{
+  "name": "candorREST",
+  "version": "1.0.0",
+  "private": true,
+  "description": "New Swagger API Project",
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.12.3",
+    "jsonwebtoken": "^8.3.0",
+    "knex": "^0.14.6",
+    "pg": "^7.4.3",
+    "request": "^2.87.0",
+    "swagger-express-mw": "^0.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "jasmine": "^3.1.0",
+    "node-fetch": "^2.1.2"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "swagger project test"
+  }
+}

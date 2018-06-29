@@ -1,0 +1,18 @@
+{
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test-setup": "npm install -g swagger",
+        "test": "swagger project test"
+      },
+      "addons": [
+        "heroku-postgresql:in-dyno"
+      ]
+    }
+  }
+}

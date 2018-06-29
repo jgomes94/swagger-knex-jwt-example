@@ -1,0 +1,108 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: Candor Rest API
+  
+# during dev, should point to your local machine
+host: localhost:10010
+
+# basePath prefixes all resource paths 
+basePath: /v1
+
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+  - application/x-www-form-urlencoded
+  
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+securityDefinitions:
+    Auth:
+        type: apiKey
+        # nome que tem que ser colocado no header
+        name: Authorization
+        in: header
+    
+paths:
+ 
+            
+  /login:
+    x-swagger-router-controller: main-controller
+    post:
+      operationId: login
+      description: adds random contact
+      # used as the method name of the controller
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: "#/definitions/Login"
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+            
+            
+  /verifyToken:
+    x-swagger-router-controller: main-controller
+    post:
+      description: adds random contact
+      # used as the method name of the controller
+      operationId: verifyToken
+      security:
+        - Auth: []
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+            
+ 
+# complex objects have schema definitions
+definitions:
+  
+  HelloWorldResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+      
+        
+  ErrorResponse:
+    type: object
+    required:
+      - message
+    properties:
+      message:
+        type: string
+   
+  Login:
+    required:
+      - user
+      - pass
+    properties:
+      user:
+        type: string
+      pass:
+        type: string
+        
