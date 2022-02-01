@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   version: "1.0.0"
-  title: Candor Rest API
+  title: Example Rest API
   
 # during dev, should point to your local machine
 host: localhost:10010
@@ -24,7 +24,7 @@ produces:
 securityDefinitions:
     Auth:
         type: apiKey
-        # nome que tem que ser colocado no header
+        #  name must be put on the header
         name: Authorization
         in: header
     
